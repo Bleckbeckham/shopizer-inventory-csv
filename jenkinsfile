@@ -1,0 +1,4 @@
+node{
+stage('1clonecode')
+git "https://github.com/Bleckbeckham/shopizer-inventory-csv"
+}
