@@ -1,9 +1,12 @@
-node{
-def mavenhome = tool name:
-'maven3.8.6'
-stage('1clonecode')
-git "https://github.com/Bleckbeckham/shopizer-inventory-csv"
-}
-stage ('2testandbuild') {
-sh "${mavenhome}/bin/mvn clean package"
+node('master')
+  {
+   def mavenHome = tool name: 'maven3.8.6'
+  stage('1.git clone')
+  {
+  git credentialsId: 'GitCredentials', url: 'https://github.com/LandmakTechnology/maven-web-app'
+  }
+  stage('2.maven-Build')
+  { 
+    sh '${mavenHome}/bin/mvn clean package'
+  }
 }
