@@ -4,4 +4,6 @@ def mavenhome = tool name:
 stage('1clonecode')
 git "https://github.com/Bleckbeckham/shopizer-inventory-csv"
 }
-
+stage ('2testandbuild') {
+sh "${mavenhome}/bin/mvn clean package"
+}
